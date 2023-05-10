@@ -79,12 +79,14 @@ jobs:
           ./scripts/build_runner.bash
 
       - name: Run unit tests and generate JUnit report
-        run: flutter test  --machine | flutter pub global run junitreport:tojunit > ./test-reports/unit_test.xml
+        run: |
+          flutter test  --machine
+          tojunit > ./test-reports/unit_test.xml
       - name: Copy report to Local
         run: copy .\test-reports\unit_test.xml "C:\Users\61415\20230510\unit_test.xml"
         
         
 #       - name: Run widget tests and generate JUnit report
-#         run: flutter test test/widget/ --update-goldens --machine | flutter pub global run junitreport:tojunit > ./test-reports/widget_test.xml
+#         run:  flutter test test/widget/ --update-goldens --machine | flutter pub global run junitreport:tojunit > ./test-reports/widget_test.xml
 
 
