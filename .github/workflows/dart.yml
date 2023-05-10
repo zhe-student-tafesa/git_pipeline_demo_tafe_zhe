@@ -55,4 +55,8 @@ jobs:
       # want to change this to 'flutter test'.
       - name: Run tests
         run: flutter test
+      - name: Run bash tests       
+        run: |
+          chmod +x build_profile.bash
+          ./scripts/build_profile.bash
 
