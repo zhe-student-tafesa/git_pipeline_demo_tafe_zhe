@@ -90,17 +90,19 @@ jobs:
   
   
       - name: Run unit tests and generate JUnit report
-        run: |
-          flutter test --machine > test-results.json
-          flutter pub global activate junitreport
-          flutter pub global run junitreport:tojunit test-results.json > tmp.xml
-          cat tmp.xml > ./test-reports/unit_test.xml
-          rm tmp.xml
+#         run: |
+#           flutter test --machine > test-results.json
+#           flutter pub global activate junitreport
+#           flutter pub global run junitreport:tojunit test-results.json > tmp.xml
+#           cat tmp.xml > ./test-reports/unit_test.xml
+#           rm tmp.xml
+        run: |          
+          flutter test --machine | tojunit -o  ./test-reports/report.xml
   
   
   
       - name: Copy report to Local
-        run: copy .\test-reports\unit_test.xml "C:\Users\61415\20230510\unit_test.xml"
+        run: copy .\test-reports\report.xml "C:\Users\61415\20230510\report.xml"
         
         
 #       - name: Run widget tests and generate JUnit report
