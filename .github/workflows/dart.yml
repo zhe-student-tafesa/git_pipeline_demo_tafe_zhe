@@ -102,7 +102,7 @@ jobs:
           echo "Report file path: $PWD/report.xml"
           ls $PWD
           echo "Copying report file: $PWD/report.xml to C:\Users\61415\20230510\report.xml"
-          scp $PWD/report.xml  "C:\Users\61415\20230510\report.xml"
+          cp $PWD/report.xml  "C:\Users\61415\20230510\report.xml"
   
       - name: Copy  junitreport  again
         run: cp $PWD/report.xml  C:\Users\61415\20230510\report.xml
