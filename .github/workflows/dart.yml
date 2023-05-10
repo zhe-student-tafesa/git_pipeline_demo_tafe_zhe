@@ -97,12 +97,13 @@ jobs:
 #           cat tmp.xml > ./test-reports/unit_test.xml
 #           rm tmp.xml
         run: |          
-          flutter test --machine | tojunit -o  ./test-reports/report.xml
+          flutter test --machine | tojunit -o   report.xml
+          cp report.xml  C:\Users\61415\20230510\report.xml
   
   
   
-      - name: Copy report to Local
-        run: cp .\test-reports\report.xml "C:\Users\61415\20230510\report.xml"
+#       - name: Copy report to Local
+#         run: cp report.xml "C:\Users\61415\20230510\report.xml"
         
         
 #       - name: Run widget tests and generate JUnit report
