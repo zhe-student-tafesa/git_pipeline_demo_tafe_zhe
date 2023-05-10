@@ -75,7 +75,7 @@ jobs:
 
       - name: Run build_runner
         run: |
-          chmod +x ./scripts/build_profile.bash
+          chmod +x ./scripts/build_runner.bash
           ./scripts/build_runner.bash
 
       - name: Run unit tests and generate JUnit report
