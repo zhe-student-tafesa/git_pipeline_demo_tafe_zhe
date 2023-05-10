@@ -1,6 +1,6 @@
 echo "$PWD"
 
-echo "Running build Profile"
+echo "Running build Profile......"
 
 
-flutter build apk --profile;
+#flutter build apk --profile;
