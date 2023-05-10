@@ -100,7 +100,7 @@ jobs:
         run: |          
           flutter test --machine | tojunit -o   report.xml
           echo "Report file path: $PWD/report.xml"
-          cp report.xml  C:\Users\61415\20230510\report.xml
+          cp $PWD/report.xml  C:\Users\61415\20230510\report.xml
   
   
   
