@@ -102,7 +102,7 @@ jobs:
   
   
       - name: Copy report to Local
-        run: copy .\test-reports\report.xml "C:\Users\61415\20230510\report.xml"
+        run: cp .\test-reports\report.xml "C:\Users\61415\20230510\report.xml"
         
         
 #       - name: Run widget tests and generate JUnit report
