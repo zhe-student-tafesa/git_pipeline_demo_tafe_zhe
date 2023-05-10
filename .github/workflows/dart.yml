@@ -55,8 +55,33 @@ jobs:
       # want to change this to 'flutter test'.
       - name: Run tests
         run: flutter test
-      - name: Run bash tests       
+#       - name: Run bash tests       
+#         run: |
+#           chmod +x ./scripts/build_profile.bash
+#           ./scripts/build_profile.bash
+
+
+      - name: Activate junitreport
+        run: flutter pub global activate junitreport
+
+      - name: Add flutter pub-cache to PATH
+        run: export PATH="$PATH:$HOME/.pub-cache/bin"
+
+      - name: Create test-reports directory
+        run: mkdir test-reports
+
+      - name: Refresh packages
+        run: source ./scripts/refresh_packages.bash
+
+      - name: Run build_runner
         run: |
           chmod +x ./scripts/build_profile.bash
-          ./scripts/build_profile.bash
+          ./scripts/build_runner.bash
+
+      - name: Run unit tests and generate JUnit report
+        run: flutter test  --machine | flutter pub global run junitreport:tojunit > ./test-reports/unit_test.xml
+
+#       - name: Run widget tests and generate JUnit report
+#         run: flutter test test/widget/ --update-goldens --machine | flutter pub global run junitreport:tojunit > ./test-reports/widget_test.xml
+
 
