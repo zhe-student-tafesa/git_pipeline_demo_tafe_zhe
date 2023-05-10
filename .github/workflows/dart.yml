@@ -68,7 +68,7 @@ jobs:
         run: export PATH="$PATH:$HOME/.pub-cache/bin"
 
       - name: Create test-reports directory
-        run: mkdir test-reports
+        run: mkdir ./test-reports
 
       - name: Refresh packages
         run: source ./scripts/refresh_packages.bash
@@ -80,7 +80,10 @@ jobs:
 
       - name: Run unit tests and generate JUnit report
         run: flutter test  --machine | flutter pub global run junitreport:tojunit > ./test-reports/unit_test.xml
-
+      - name: Copy report to Local
+        run: copy .\test-reports\unit_test.xml "C:\Users\61415\20230510\unit_test.xml"
+        
+        
 #       - name: Run widget tests and generate JUnit report
 #         run: flutter test test/widget/ --update-goldens --machine | flutter pub global run junitreport:tojunit > ./test-reports/widget_test.xml
 
