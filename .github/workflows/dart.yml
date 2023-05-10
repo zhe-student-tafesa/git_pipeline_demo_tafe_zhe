@@ -88,8 +88,7 @@ jobs:
 #         run: flutter test --machine | flutter pub global run junitreport:tojunit | tee ./test-reports/unit_test.xml      
   
   
-      - name: Check file write auth
-        run: icacls "C:\Users\61415\20230510" 
+
   
       - name: Run unit tests and generate JUnit report
 #         run: |
@@ -100,6 +99,7 @@ jobs:
 #           rm tmp.xml
         run: |          
           flutter test --machine | tojunit -o   report.xml
+          echo "Report file path: $PWD/report.xml"
           cp report.xml  C:\Users\61415\20230510\report.xml
   
   
